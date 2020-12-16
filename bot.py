@@ -28,7 +28,4 @@ async def on_message(message):
 		if (emote != None):
 			await message.add_reaction(emote)
 
-async def get_emoji(guild: discord.Guild, arg):
-	 return get(ctx.guild.emojis, name=arg)
-
 client.run(TOKEN)
