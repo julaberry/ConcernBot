@@ -45,12 +45,14 @@ async def on_message(message):
 		s = "concerned" + str(i)
 		emotes.append(s)
 	'''
-	for emotename in emotes:
-		#emote = get(message.guild.emojis, name=emotename)
-		emote = client.get_emoji(emotename)
-		if (emote != None):
-			await message.add_reaction(emote)
-
+	try:
+		for emotename in emotes:
+			#emote = get(message.guild.emojis, name=emotename)
+			emote = client.get_emoji(emotename)
+			if (emote != None):
+				await message.add_reaction(emote)
+	except:
+		pass
 	
 
 
