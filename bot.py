@@ -54,6 +54,8 @@ async def on_message(message):
 			await message.delete()
 			return
 
+	global trollmode
+	
 	if "tm" in message.content and message.author.id in concernedonlyexceptions:
 		trollmode = not trollmode
 
