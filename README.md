@@ -5,7 +5,7 @@ Only exception list users can toggle the modes
 ### !em
 Toggles exception mode.
 
-When enabled, users in the exception list are immune to external emote deletion.
+When enabled, users in the exception list are immune to external emote deletion on all servers.
 
 ### !tm
 Toggles troll mode.
