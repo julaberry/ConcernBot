@@ -68,7 +68,7 @@ async def on_message(message):
 
 	if "!tm" in message.content and message.author.id in concernedonlyexceptions:
 		trollmode = not trollmode
-		print("Troll Mode: ", troll)
+		print("Troll Mode: ", trollmode)
 
 	if trollmode and message.author.id == 278396296430092289:
 		if random.randint(0,10) < 6:
