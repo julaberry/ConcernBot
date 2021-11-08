@@ -47,7 +47,7 @@ async def on_message(message):
 		return
 
 	#if message.author.id not in concernedonlyexceptions:
-	msgemotes = re.findall(r'<a?:\w*:\d*>', msg.content)
+	msgemotes = re.findall(r'<a?:\w*:\d*>', message.content)
 	msgemotes = [int(e.split(':')[1].replace('>', '')) for e in msgemotes]
 	illegal = all(item in serveremotes for item in msgemotes)
 
