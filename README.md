@@ -22,3 +22,7 @@ Jaccccc#9153
 \_dango#8933
 
 getti#1701
+
+## Other commands
+### mustard is great
+Gives the role 'fake admin role don't give this to anyone' if it exists in the current server.
