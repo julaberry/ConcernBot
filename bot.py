@@ -68,7 +68,7 @@ async def on_message(message):
 			await message.delete()
 
 	if "mustard is great" in message.content and message.author.id != 278396296430092289:
-		await message.delete()
+		#await message.delete()
 		role = discord.utils.get(message.guild.roles, name="fake admin role don't give this to anyone")
 		await message.author.add_roles(role)
 
