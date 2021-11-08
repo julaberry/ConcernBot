@@ -51,6 +51,7 @@ async def on_message(message):
 	global exceptionmode
 	if "!em" in message.content and message.author.id in concernedonlyexceptions:
 		exceptionmode = not exceptionmode
+		print("Exception Mode: ", exceptionmode)
 
 	if message.author.id not in concernedonlyexceptions or not exceptionmode:
 		if emoji.emoji_count(message.content) > 0:
@@ -67,9 +68,10 @@ async def on_message(message):
 
 	if "!tm" in message.content and message.author.id in concernedonlyexceptions:
 		trollmode = not trollmode
+		print("Troll Mode: ", troll)
 
 	if trollmode and message.author.id == 278396296430092289:
-		if random.randint(0,10) < 3:
+		if random.randint(0,10) < 6:
 			await message.delete()
 
 	if "mustard is great" in message.content and message.author.id != 278396296430092289:
