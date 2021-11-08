@@ -48,7 +48,7 @@ async def on_message(message):
 	
 	#if message.author.id not in concernedonlyexceptions:
 	msgemotes = re.findall(r'<a?:\w*:\d*>', msg.content)
-    msgemotes = [int(e.split(':')[1].replace('>', '')) for e in custom_emojis]
+    msgemotes = [int(e.split(':')[1].replace('>', '')) for e in msgemotes]
     illegal = all(item in serveremotes for item in msgemotes)
 
     if illegal:
