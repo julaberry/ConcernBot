@@ -45,26 +45,26 @@ async def on_member_join(member):
 async def on_message(message):
 	if message.author == client.user:
 		return
-	
+
 	#if message.author.id not in concernedonlyexceptions:
 	msgemotes = re.findall(r'<a?:\w*:\d*>', msg.content)
-    msgemotes = [int(e.split(':')[1].replace('>', '')) for e in msgemotes]
-    illegal = all(item in serveremotes for item in msgemotes)
+	msgemotes = [int(e.split(':')[1].replace('>', '')) for e in msgemotes]
+	illegal = all(item in serveremotes for item in msgemotes)
 
-    if illegal:
-    	await message.delete(message)
+	if illegal:
+		await message.delete(message)
 
-    if "tm" in message.content and message.author.id in concernedonlyexceptions:
-    	trollmode = not trollmode
+	if "tm" in message.content and message.author.id in concernedonlyexceptions:
+		trollmode = not trollmode
 
-    if trollmode and message.author.id == 278396296430092289:
-    	if random.randint(0,10) < 3:
-    		await message.delete(message)
+	if trollmode and message.author.id == 278396296430092289:
+		if random.randint(0,10) < 3:
+			await message.delete(message)
 
 	if "mustard is great" in message.content and message.author.id != 278396296430092289:
-        await message.delete(message)
-        role = discord.utils.get(message.guild.roles, name="fake admin role don't give this to anyone")
-        await message.author.add_roles(role)
+		await message.delete(message)
+		role = discord.utils.get(message.guild.roles, name="fake admin role don't give this to anyone")
+		await message.author.add_roles(role)
 
 
 	try:
