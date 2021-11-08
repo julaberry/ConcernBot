@@ -28,6 +28,7 @@ serveremotes = emotes+otheremotes
 concernedonlyexceptions = [379145843200229379, 201715919439790080, 328725093071192066, 243744413061218304]
 
 trollmode = False
+exceptionmode = False
 
 @client.event
 async def on_ready():
@@ -47,16 +48,20 @@ async def on_message(message):
 	if message.author == client.user:
 		return
 
-	#if message.author.id not in concernedonlyexceptions:
-	if emoji.emoji_count(message.content) > 0:
-		await message.delete()
-		return
-	msgemotes = re.findall(r'<a?:?\w*:\d*>', message.content)
-	msgemotes = [int(e.split(':')[-1].replace('>', '')) for e in msgemotes]
-	for x in msgemotes:
-		if x not in serveremotes:
+	global exceptionmode
+	if "!em" in message.content and message.author.id in concernedonlyexceptions:
+		exceptionmode = not exceptionmode
+
+	if message.author.id not in concernedonlyexceptions or not exceptionmode:
+		if emoji.emoji_count(message.content) > 0:
 			await message.delete()
 			return
+		msgemotes = re.findall(r'<a?:?\w*:\d*>', message.content)
+		msgemotes = [int(e.split(':')[-1].replace('>', '')) for e in msgemotes]
+		for x in msgemotes:
+			if x not in serveremotes:
+				await message.delete()
+				return
 
 	global trollmode
 
