@@ -2,6 +2,7 @@ import re
 import discord
 import json
 import random
+import emoji
 from discord.utils import get
 
 intents = discord.Intents.default()
