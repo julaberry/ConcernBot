@@ -49,7 +49,7 @@ async def on_message(message):
 	#if message.author.id not in concernedonlyexceptions:
 	if emoji.emoji_count(message.content) > 0:
 		await message.delete()
-			return
+		return
 	msgemotes = re.findall(r'<a?:\w*:\d*>', message.content)
 	msgemotes = [int(e.split(':')[1].replace('>', '')) for e in msgemotes]
 	for x in msgemotes:
