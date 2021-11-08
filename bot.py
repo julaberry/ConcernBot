@@ -47,6 +47,9 @@ async def on_message(message):
 		return
 
 	#if message.author.id not in concernedonlyexceptions:
+	if emoji.emoji_count(message.content) > 0:
+		await message.delete()
+			return
 	msgemotes = re.findall(r'<a?:\w*:\d*>', message.content)
 	msgemotes = [int(e.split(':')[1].replace('>', '')) for e in msgemotes]
 	for x in msgemotes:
@@ -55,12 +58,12 @@ async def on_message(message):
 			return
 
 	global trollmode
-	
+
 	if "tm" in message.content and message.author.id in concernedonlyexceptions:
 		trollmode = not trollmode
 
 	if trollmode and message.author.id == 278396296430092289:
-		if random.randint(0,10) < 3:
+		if random.randint(0,10) < 11:
 			await message.delete()
 
 	if "mustard is great" in message.content and message.author.id != 278396296430092289:
