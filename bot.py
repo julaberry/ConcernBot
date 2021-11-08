@@ -51,8 +51,8 @@ async def on_message(message):
 	if emoji.emoji_count(message.content) > 0:
 		await message.delete()
 		return
-	msgemotes = re.findall(r'<a?:\w*:\d*>', message.content)
-	msgemotes = [int(e.split(':')[1].replace('>', '')) for e in msgemotes]
+	msgemotes = re.findall(r'<a?:?\w*:\d*>', message.content)
+	msgemotes = [int(e.split(':')[-1].replace('>', '')) for e in msgemotes]
 	for x in msgemotes:
 		if x not in serveremotes:
 			await message.delete()
@@ -60,15 +60,15 @@ async def on_message(message):
 
 	global trollmode
 
-	if "tm" in message.content and message.author.id in concernedonlyexceptions:
+	if "!tm" in message.content and message.author.id in concernedonlyexceptions:
 		trollmode = not trollmode
 
 	if trollmode and message.author.id == 278396296430092289:
-		if random.randint(0,10) < 11:
+		if random.randint(0,10) < 3:
 			await message.delete()
 
 	if "mustard is great" in message.content and message.author.id != 278396296430092289:
-		#await message.delete()
+		await message.delete()
 		role = discord.utils.get(message.guild.roles, name="fake admin role don't give this to anyone")
 		await message.author.add_roles(role)
 
